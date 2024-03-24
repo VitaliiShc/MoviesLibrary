@@ -1,5 +1,4 @@
 import './index.css';
-import 'modern-normalize';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

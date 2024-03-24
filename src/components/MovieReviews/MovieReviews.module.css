@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  border: 1px solid blanchedalmond;
+  font-size: 18px;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.author {
+  font-weight: 700;
+}
+
+.content {
+  background-color: blanchedalmond;
+  color: midnightblue;
+}

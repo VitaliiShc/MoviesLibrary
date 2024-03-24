@@ -1,0 +1,17 @@
+.container {
+  max-width: 1280px;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.page_top_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.title {
+  color: blanchedalmond;
+}

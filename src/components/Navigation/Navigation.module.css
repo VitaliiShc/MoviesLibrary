@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 20px;
+  box-shadow: 0 2px 5px blanchedalmond;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: Navy;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  max-width: 1280px;
+}
+
+.link {
+  padding: 5px 0px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: blanchedalmond;
+  font-weight: 500;
+}
+.link:hover {
+  text-decoration: underline;
+  color: NavajoWhite;
+}
+
+.active {
+  color: SandyBrown;
+}
+.active:hover {
+  color: SandyBrown;
+}

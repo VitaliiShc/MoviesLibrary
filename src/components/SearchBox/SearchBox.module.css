@@ -1,0 +1,12 @@
+.input {
+  font-size: 20px;
+  padding: 2px 10px 2px 2px;
+  border-radius: 4px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 6px;
+}
