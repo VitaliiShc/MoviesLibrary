@@ -19,6 +19,10 @@ export const MovieReviews = () => {
         setIsLoading(true);
         setError(false);
         const data = await getMovieReviews(movieId);
+        if (data.length === 0) {
+          setError(true && 'noReviews');
+          return;
+        }
         setReviews(data);
       } catch (error) {
         console.log('error: ', error);
@@ -33,7 +37,7 @@ export const MovieReviews = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage alert={error} />}
       {!error && (
         <ul className={css.list}>
           {reviews.map((review) => (

@@ -20,6 +20,10 @@ export const MovieCast = () => {
         setIsLoading(true);
         setError(false);
         const data = await getMovieCast(movieId);
+        if (data.length === 0) {
+          setError(true && 'noCast');
+          return;
+        }
         setCast(data);
       } catch (error) {
         setError(true);
@@ -32,7 +36,7 @@ export const MovieCast = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage alert={error} />}
       {!error && (
         <ul className={css.list}>
           {cast.map((actor) => (
