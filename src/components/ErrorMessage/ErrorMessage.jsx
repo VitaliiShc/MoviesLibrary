@@ -6,6 +6,12 @@ export const ErrorMessage = ({ alert }) => {
       return (
         <p className={css.errorMsg}>No movies available for your request!</p>
       );
+    case 'queryField':
+      return (
+        <p className={css.errorMsg}>
+          Please, enter a word to search for a movie!
+        </p>
+      );
     case 'noCast':
       return (
         <p className={css.errorMsg}>
@@ -22,5 +28,5 @@ export const ErrorMessage = ({ alert }) => {
       return <p className={css.errorMsg}>Error! Reload the page!</p>;
   }
 };
-
+// ;
 export default ErrorMessage;

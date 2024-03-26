@@ -15,15 +15,16 @@ export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [searchParams] = useSearchParams('');
+  const [searchParams, setSearchParams] = useSearchParams('');
   const searchedMovie = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!searchedMovie) {
       setMovies([]);
+      setError(true && 'queryField');
       return;
     }
-    const fetchMoviesByWord = async () => {
+    const fetchMoviesByTitle = async () => {
       try {
         setIsLoading(true);
         setError(false);
@@ -40,13 +41,24 @@ export const MoviesPage = () => {
         setIsLoading(false);
       }
     };
-    fetchMoviesByWord();
+    fetchMoviesByTitle();
   }, [searchedMovie]);
+
+  const changeSearchQuery = (searchQuery) => {
+    if (searchQuery.trim().length === 0) {
+      setSearchParams('');
+      return;
+    }
+    setSearchParams({ query: searchQuery });
+  };
 
   return (
     <main className={css.container}>
       <div className={css.page_top_wrap}>
-        <SearchBox />
+        <SearchBox
+          searchedMovie={searchedMovie}
+          changeSearchQuery={changeSearchQuery}
+        />
       </div>
       {isLoading && <Loader />}
       {!error ? <MovieList movies={movies} /> : <ErrorMessage alert={error} />}

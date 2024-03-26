@@ -23,7 +23,7 @@ export const MoviesPage = () => {
       setMovies([]);
       return;
     }
-    const fetchMoviesByWord = async () => {
+    const fetchMoviesByTitle = async () => {
       try {
         setIsLoading(true);
         setError(false);
@@ -40,7 +40,7 @@ export const MoviesPage = () => {
         setIsLoading(false);
       }
     };
-    fetchMoviesByWord();
+    fetchMoviesByTitle();
   }, [searchedMovie]);
 
   return (
