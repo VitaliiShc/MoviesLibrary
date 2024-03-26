@@ -20,7 +20,7 @@ export const MovieReviews = () => {
         setError(false);
         const data = await getMovieReviews(movieId);
         if (data.length === 0) {
-          setError(true && 'noReviews');
+          setError('noReviews');
           return;
         }
         setReviews(data);

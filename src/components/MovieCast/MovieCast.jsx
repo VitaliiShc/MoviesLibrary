@@ -21,11 +21,12 @@ export const MovieCast = () => {
         setError(false);
         const data = await getMovieCast(movieId);
         if (data.length === 0) {
-          setError(true && 'noCast');
+          setError('noCast');
           return;
         }
         setCast(data);
       } catch (error) {
+        console.log('error: ', error);
         setError(true);
       } finally {
         setIsLoading(false);

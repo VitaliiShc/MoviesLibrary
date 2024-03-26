@@ -21,7 +21,7 @@ export const MoviesPage = () => {
   useEffect(() => {
     if (!searchedMovie) {
       setMovies([]);
-      setError(true && 'queryField');
+      setError('queryField');
       return;
     }
     const fetchMoviesByTitle = async () => {
@@ -31,11 +31,12 @@ export const MoviesPage = () => {
         setMovies([]);
         const data = await getMoviesByTitle(searchedMovie);
         if (data.length === 0 && searchedMovie !== '') {
-          setError(true && 'noMovie');
+          setError('noMovie');
           return;
         }
         setMovies(data);
       } catch (error) {
+        console.log('error: ', error);
         setError(true);
       } finally {
         setIsLoading(false);

@@ -22,6 +22,7 @@ export const HomePage = () => {
         const data = await getTrendingPerDay();
         setMovies(data);
       } catch (error) {
+        console.log('error: ', error);
         setError(true);
       } finally {
         setIsLoading(false);

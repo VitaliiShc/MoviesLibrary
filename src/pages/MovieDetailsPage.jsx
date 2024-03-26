@@ -27,6 +27,7 @@ export const MovieDetailsPage = () => {
         const data = await getMovieDetails(movieId);
         setMovie(data);
       } catch (error) {
+        console.log('error: ', error);
         setError(true);
       } finally {
         setIsLoading(false);
