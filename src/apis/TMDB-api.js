@@ -17,14 +17,14 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export const getTrendingPerDay = async () => {
   const response = await axios.get('trending/movie/day');
-  const requaredData = await moviesListRequiredData(response.data.results);
-  return requaredData;
+  const requiredData = await moviesListRequiredData(response.data.results);
+  return requiredData;
 };
 
 export const getMoviesByTitle = async (title) => {
   const response = await axios.get(`search/movie?query=${title}`);
-  const requaredData = await moviesListRequiredData(response.data.results);
-  return requaredData;
+  const requiredData = await moviesListRequiredData(response.data.results);
+  return requiredData;
 };
 
 export const getMovieDetails = async (id) => {
@@ -56,12 +56,12 @@ export const getMovieDetails = async (id) => {
 
 export const getMovieCast = async (id) => {
   const response = await axios.get(`/movie/${id}/credits`);
-  const requaredData = await moviesCastRequiredData(response.data.cast);
-  return requaredData;
+  const requiredData = await moviesCastRequiredData(response.data.cast);
+  return requiredData;
 };
 
 export const getMovieReviews = async (id) => {
   const response = await axios.get(`/movie/${id}/reviews`);
-  const requaredData = await moviesReviewsRequiredData(response.data.results);
-  return requaredData;
+  const requiredData = await moviesReviewsRequiredData(response.data.results);
+  return requiredData;
 };
