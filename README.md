@@ -1,73 +1,68 @@
-Кінопошук
+# Movies Library
 
-Напиши застосунок із маршрутизацією для пошуку фільмів за назвою. Подивіться демо-відео роботи застосунку.
-https://goitlmsstorage.b-cdn.net/4c6fffa5-7f06-4a1d-9f2b-ed0b4a616b28react-hw-04-preview.mp4
+One-page applications for searching information about movies on TMDB.
 
-Сервіс пошуку фільмів
+[Link to the preview](https://vitaliishc-movieslibrary.vercel.app/) (Ctrl + Click to open in a new tab)
 
-В цьому завданні, за допомогою HTTP-запитів, ти будеш отримувати фільми з сервісу TMDB (https://www.themoviedb.org/). Зареєструй аккаунт (можна ввести довільні дані), щоб отримати доступ до документації (https://developer.themoviedb.org/docs/getting-started) та ключ доступу для HTTP-запитів.
+## Technologies Used
 
-Корисні для тебе розділи документації:
+HTML/CSS, JavaScript, React (with Routes), Axios.
 
-Trending movies - список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.
+Libraries: clsx, formik, react-hot-toast.
 
-- Search movie - https://developer.themoviedb.org/reference/trending-movies - пошук фільму за ключовим словом на сторінці фільмів.
-- Movie details - https://developer.themoviedb.org/reference/search-movie - запит повної інформації про фільм для сторінки кінофільму.
-- Movie credits - https://developer.themoviedb.org/reference/movie-details - запит інформації про акторський склад для сторінки кінофільму.
-- Movie reviews - https://developer.themoviedb.org/reference/movie-credits - запит оглядів для сторінки кінофільму.
+Bundler: Vite.
 
-Токен доступу
+### Routes
 
-Токен доступу повинен долучатися до кожного запиту у вигляді HTTP-заголовка Authorization, ось приклад.
+- `/` - **HomePage**, a homepage with a list of trending movies.
+- `/movies` - **MoviesPage**, a page for searching movies by keyword.
+- `/movies/:movieId` - **MovieDetailsPage**, a page with detailed information about a movie.
+- `/movies/:movieId/cast` - **MovieCast**, information about the cast. It is rendered at the bottom of the **MovieDetailsPage**.
+- `/movies/:movieId/reviews` - **MovieReviews**, a component providing information about reviews. It is rendered at the bottom of the **MovieDetailsPage**.
 
-===============================================================
-const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
+## How to Clone and Run the Project
 
-const options = {
-headers: {
-// Замість api_read_access_token вставте свій токен
-Authorization: 'Bearer api_read_access_token'
-}
-};
+1. Clone the repository:
 
-axios.get(url, options)
-.then(response => console.log(response))
-.catch(err => console.error(err));
-===============================================================
+- Open your terminal (or Git Bash) and navigate to the folder where you want to store the project.
 
-Токен доступу отримується з розділу "API Read Access Token" на сторінці API (https://www.themoviedb.org/settings/api).
+- Run the following command to clone the repository:
 
-Шлях до зображень
+`git clone https://github.com/VitaliiShc/MoviesLibrary.git`
 
-Бекенд буде надсилати замість повноцінного посилання на зображення, наприклад для плаката фільму, отакі рядки, тобто просто ім'я файлу.
+2. Navigate to the project directory:
+   `cd MoviesLibrary`
 
-===============================================================
-/1E5baAaEse26fej7uHcjOgEE2t2.jpg
-===============================================================
+3. Install dependencies:
 
-Для складання повного шляху до зображення тобі необхідно ознайомитися з розділом документації (https://developer.themoviedb.org/docs/image-basics), присвяченим цьому питанню.
+- Make sure you have Node.js installed. If not, download and install it from Node.js official website.
 
-Якщо коротко, то необхідно вручну додати шлях перед ім'ям зображення. В результаті у тебе вийде повноцінне посилання на зображення.
-https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+- Install the necessary project dependencies:
 
-Навігація в додатку
+`npm install`
 
-У застосунку обов'язково повинні бути наступні маршрути.
+4. Run the project locally:
 
-- '/' - компонент HomePage, домашня сторінка із списком популярних кінофільмів.
-- '/movies' - компонент MoviesPage, сторінка пошуку кінофільмів за ключовим словом.
-- '/movies/:movieId' - компонент MovieDetailsPage, сторінка із детальною інформацією про кінофільм.
-- /movies/:movieId/cast - компонент MovieCast, інформація про акторський склад. Рендериться в нижній частині на сторінці MovieDetailsPage.
-- /movies/:movieId/reviews - компонент MovieReviews, інформація про огляди. Рендериться в нижній частині на сторінці MovieDetailsPage.
-- Якщо користувач зайшов за маршрутом, якого не існує, потрібно показувати компонент NotFoundPage, в якому є посилання Link на домашню сторінку.
+- Start the local development server:
 
-Файли, папки та компоненти:
+`npm start`
 
-- Файли компонентів сторінок, таких як HomePage, MoviesPage, MovieDetailsPage, NotFoundPage, повинні бути в папці src/pages.
-- Компоненти MovieCast і MovieReviews не є окремими сторінками, вони є лише частинами сторінки MovieDetailsPage, тому файли цих компонентів зберігаємо в src/components.
-- Меню з навігаційними посиланнями перенесіть в компонент Navigation. Він складається з двох компонентів NavLink, які вказують на маршрути / і /movies.
-- Для відображення списку фільмів створіть компонент MovieList. Використовуйте його на сторінках HomePage і MoviesPage.
+- Open your browser and go to `http://localhost:5173` to see the online store in action.
 
-Поділ коду
+5. Build the project for production:
 
-Додай асинхронне завантаження JS-коду для маршрутів застосунку, використовуючи React.lazy та Suspense.
+- To create an optimized build for production, use:
+
+`npm run build`
+
+6. Deploy (optional):
+
+- You can deploy the project on platforms like GitHub Pages, Netlify, or Vercel. For GitHub Pages, follow these steps:
+
+- Push your changes to GitHub.
+
+- Go to your GitHub repository, open the Settings tab, and scroll down to the 'GitHub Pages' section.
+
+- Select the main branch and save.
+
+- Your online store will be live at `https://<your-username>.github.io/nice-gadgets-online-store/`.
