@@ -48,21 +48,3 @@ Bundler: Vite.
 `npm start`
 
 - Open your browser and go to `http://localhost:5173` to see the online store in action.
-
-5. Build the project for production:
-
-- To create an optimized build for production, use:
-
-`npm run build`
-
-6. Deploy (optional):
-
-- You can deploy the project on platforms like GitHub Pages, Netlify, or Vercel. For GitHub Pages, follow these steps:
-
-- Push your changes to GitHub.
-
-- Go to your GitHub repository, open the Settings tab, and scroll down to the 'GitHub Pages' section.
-
-- Select the main branch and save.
-
-- Your online store will be live at `https://<your-username>.github.io/nice-gadgets-online-store/`.
